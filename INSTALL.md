@@ -1,0 +1,1 @@
+INSTALL: Just place it in humhub/protected/modules
