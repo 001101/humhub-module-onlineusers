@@ -1,13 +1,17 @@
-# humhub-modules-onlineusers
-Adds a panel on the Dashboard and display the online users
+# Online Users Widget v1.0.0 by 001101
+## humhub-modules-onlineusers
+Adds a widget on the Dashboard and display the online users.
 
-It is a complete rewrite for this module.
+##Working with 1.1.0-*
 
-It will show up under last activities and show up max. 100 users,
+- It is a complete rewrite for this module.
+
+It will show up under last activities and show up max. 70 (10 rows of icons) users per default,
 you can set max users in Admin Panel and the position can be set up 
-in the file onlineusers\Module.php line 14 'sortOrder' => 250',
+in the file 'onlineusers\Module.php' on line 14 'sortOrder' => 250',
 just play around, 100 is over activities and so on.
 
-INSTALL: Just place it in humhub/protected/modules
+#INSTALL: 
+- Clone or Upload as `onlineusers` in your `humhub/protected/modules/` folder.
 
 greets

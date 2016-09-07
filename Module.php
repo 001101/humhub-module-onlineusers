@@ -23,7 +23,7 @@ class Module extends \humhub\components\Module
     {
         parent::enable();
         Setting::Set('panelTitle', 'Online Users', 'onlineusers');
-        Setting::Set('maxMembers', 100, 'onlineusers');
+        Setting::Set('maxMembers', 70, 'onlineusers');
     }
 
 }
