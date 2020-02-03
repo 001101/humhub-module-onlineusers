@@ -13,6 +13,6 @@ in the file 'onlineusers\Module.php' on line 14 'sortOrder' => 250',
 just play around, 100 is over activities and so on.
 
 # INSTALL: 
-- Clone or Upload as `onlineusers` in your `humhub/protected/modules/` folder.
+- Clone or Upload as `onlineusers` in your `humhub/protected/modules` folder.
 
 greets
