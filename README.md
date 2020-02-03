@@ -4,7 +4,8 @@ Adds a widget on the Dashboard and display the online users.
 
 ## Working with 1.*
 
-- It is a complete rewrite for this module.
+It is simply based on the already implemented, but badly documentated function for online users from the directory 
+and is mashed up in the 'new-members module'.
 
 It will show up under last activities and show up max. 70 (10 rows of icons) users per default,
 you can set max users in Admin Panel and the position can be set up 
