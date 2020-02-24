@@ -10,11 +10,13 @@ use humhub\modules\user\components\Session;
 use yii\web\HttpException;
 
 /**
- * Shows newly registered members as sidebar widget on the dashboard
+ * Shows online users as a sidebar widget on the dashboard
+ *
+ * originally coded from Andreas Strobel on humhub-new-members-module
  *
  * @package humhub.modules_core.directory.widgets
  * @since 0.11
- * @author Andreas Strobel
+ * @author 001101
  */
 class OnlineUsersSidebarWidget extends \yii\base\Widget
 {
