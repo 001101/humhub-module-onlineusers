@@ -5,7 +5,6 @@ namespace humhub\modules\onlineusers\controllers;
 use Yii;
 use humhub\modules\admin\components\Controller;
 use humhub\modules\onlineusers\forms\OnlineUsersConfigureForm;
-use humhub\models\Setting;
 
 /**
  * Defines the configure actions.
@@ -22,23 +21,14 @@ class ConfigController extends Controller
      */
     public function actionConfig()
     {
-        $form = new OnlineUsersConfigureForm();
-        $form->panelTitle = Setting::Get('panelTitle', 'onlineusers');
-        $form->maxMembers = Setting::Get('maxMembers', 'onlineusers');
+        $model = new OnlineUsersConfigureForm();
+        $model->loadSettings();
 
-        if ($form->load(Yii::$app->request->post()) && $form->validate()) {
-            $form->panelTitle = Setting::Set('panelTitle', $form->panelTitle, 'onlineusers');
-            $form->maxMembers = Setting::Set('maxMembers', $form->maxMembers, 'onlineusers');
-
-/* ToDo: integrate list from most-active-users at a specific user amount */
-
-            Yii::$app->getSession()->setFlash('data-saved', Yii::t('AdminModule.controllers_SettingController', 'Saved'));
-            $this->redirect(['/onlineusers/config/config']);
+        if ($model->load(Yii::$app->request->post()) && $model->saveSettings()) {
+            $this->view->saved();
         }
 
-        return $this->render('config', array('model' => $form));
+        return $this->render('config', ['model' => $model]);
     }
 
 }
-
-?>

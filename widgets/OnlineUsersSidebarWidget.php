@@ -4,7 +4,6 @@ namespace humhub\modules\onlineusers\widgets;
 
 use Yii;
 use yii\helpers\Url;
-use humhub\models\Setting;
 use humhub\modules\user\models\User;
 use humhub\modules\user\components\Session;
 use yii\web\HttpException;
@@ -26,8 +25,8 @@ class OnlineUsersSidebarWidget extends \yii\base\Widget
      */
     public function run()
     {
-        $maxMembers = (int) Setting::Get('maxMembers', 'onlineusers');
-
+        $maxMembers = (int) Yii::$app->getModule('onlineusers')->settings->get('maxMembers');
+        $panelTitle = Yii::$app->getModule('onlineusers')->settings->get('panelTitle');
 
         $OnlineUsersQuery = Session::getOnlineUsers();
         $OnlineUsersQuery->limit($maxMembers);
@@ -39,12 +38,7 @@ class OnlineUsersSidebarWidget extends \yii\base\Widget
             return;
         }
 
-        return $this->render('onlineusers', array(
-                    'OnlineUsers' => $OnlineUsers,
-                    'title' => Setting::Get('panelTitle', 'onlineusers')
-        ));
+        return $this->render('onlineusers', ['OnlineUsers' => $OnlineUsers, 'title' => $panelTitle]);
     }
 
 }
-
-?>
