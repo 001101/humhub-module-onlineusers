@@ -13,6 +13,6 @@
     "license": "AGPL",
     "time": "2015-06-04",
     "humhub": {
-        "minVersion": "1.0"
+        "minVersion": "1.6"
     }
 }
