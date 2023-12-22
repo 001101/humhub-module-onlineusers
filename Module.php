@@ -2,8 +2,8 @@
 
 namespace humhub\modules\onlineusers;
 
+use Yii;
 use yii\helpers\Url;
-use humhub\models\Setting;
 use humhub\modules\onlineusers\widgets\OnlineUsersSidebarWidget;
 
 class Module extends \humhub\components\Module
@@ -11,7 +11,9 @@ class Module extends \humhub\components\Module
 
     public static function onSidebarInit($event)
     {
-        $event->sender->addWidget(OnlineUsersSidebarWidget::className(), array(), array('sortOrder' => 250));
+        $module = Yii::$app->getModule('onlineusers');
+
+        $event->sender->addWidget(OnlineUsersSidebarWidget::class, [], ['sortOrder' => $module->settings->get('sortOrder')]);
     }
 
     public function getConfigUrl()
@@ -22,8 +24,8 @@ class Module extends \humhub\components\Module
     public function enable()
     {
         parent::enable();
-        Setting::Set('panelTitle', 'Online Users', 'onlineusers');
-        Setting::Set('maxMembers', 70, 'onlineusers');
+        $this->settings->set('panelTitle');
+        $this->settings->set('maxMembers', 70);
     }
 
 }
